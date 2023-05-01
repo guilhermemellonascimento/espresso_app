@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="w-300 py-5 mx-auto">
+    <div class="mb-3 text-center">
+      <h2>MFA</h2>
+    </div>
+
+    <div class="mb-4 text-center">
+      <% if current_user.otp_required_for_login %>
+      <p>Two factor authentication está habilitado.</p>
+      <p>
+        <%= link_to 'Desabilitar two factor authentication',
+              settings_mfa_path,
+              data: { "turbo-method": :delete, turbo_confirm: 'Deseja realmente desabilitar two factor authentication?' },
+              class: 'btn btn-danger'
+        %>
+      </p>
+    <% else %>
+      <p>Two factor authentication não está habilitado.</p>
+      <p>
+        <%= link_to('Habilitar two factor authentication', new_settings_mfa_path, class: 'btn btn-primary') %>
+      </p>
+    <% end %>
+    </div>
+  </div>
+</div>

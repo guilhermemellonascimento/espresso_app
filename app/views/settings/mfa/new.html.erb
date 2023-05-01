@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="w-25 py-5 mx-auto">
+    <div class="mb-3 text-center">
+      <h2>MFA</h2>
+    </div>
+
+    <div class="mb-4 text-center">
+      <%= raw qr_code_as_svg(@current_user.two_factor_qr_code_uri) %>
+    </div>
+
+    <%= form_for(:two_fa, url: settings_mfa_path, method: :post, data: { turbo: false }) do |f| %>
+      <div class="mb-4">
+        <%= f.label 'Insira o código gerado no aplicativo' %><br />
+        <%= f.text_field :code, autofocus: true, autocomplete: "off", class: 'form-control' %>
+      </div>
+
+      <div class="d-grid">
+        <%= f.submit 'Habilitar', class: 'btn btn-lg btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>
