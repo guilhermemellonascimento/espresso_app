@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="w-25 mx-auto py-5">
+    <div class="mb-3">
+      <h2>Login</h2>
+    </div>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), method: :post, data: { turbo: false }) do |f| %>
+      <%= hidden_field_tag :two_factor, true %>
+
+      <div class="mb-4">
+        <label class="form-label">Insira o token de autenticação gerado pelo aplicativo</label>
+        <%= f.text_field :otp_attempt, autofocus: true, class: 'form-control' %>
+      </div>
+
+      <div class="d-grid">
+        <%= f.submit 'Entrar', class: 'btn btn-lg btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>

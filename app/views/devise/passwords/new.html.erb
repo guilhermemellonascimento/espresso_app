@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="w-25 mx-auto py-5">
+    <div class="mb-3">
+      <h2>Recuperar Senha</h2>
+    </div>
+
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="mb-4">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="d-grid">
+        <%= invisible_recaptcha_tags text: 'Enviar', class: 'btn btn-lg btn-primary' %>
+      </div>
+    <% end %>
+
+    <br />
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

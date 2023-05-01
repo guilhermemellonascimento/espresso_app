@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="w-25 mx-auto py-5">
+    <div class="mb-3">
+      <h2>Cadastro</h2>
+    </div>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <div class="mb-4">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+      </div>
+
+      <div class="mb-4">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control' %>
+
+        <div class="form-text fs-7 fst-italic">
+          Sua senha deve ter 12-32 caracteres, conter ao menos uma letra maiúscula, uma letra minúscula, um número e um caracter especial (*#@!-)
+        </div>
+      </div>
+
+      <div class="d-grid">
+        <%= invisible_recaptcha_tags text: 'Cadastrar', class: 'btn btn-lg btn-primary' %>
+      </div>
+    <% end %>
+
+    <br />
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

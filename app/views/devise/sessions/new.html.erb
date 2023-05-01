@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="w-25 mx-auto py-5">
+    <div class="mb-3">
+      <h2>Login</h2>
+    </div>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="mb-4">
+        <label class="form-label">Email</label>
+        <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+      </div>
+
+      <div class="mb-4">
+        <div class="row">
+          <div class="col">
+            <label class="form-label">Senha</label>
+          </div>
+          <div class="col-auto">
+            <%= link_to 'Esqueceu?', new_password_path(resource_name), class: "form-text small text-primary"  %></div>
+        </div>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+
+      <div class="d-grid">
+        <%= invisible_recaptcha_tags text: 'Entrar', class: 'btn btn-lg btn-primary' %>
+      </div>
+
+      <div class="mt-3">
+        <%= link_to "Cadastre-se", new_registration_path(resource_name) %>
+      </div>
+    <% end %>
+  </div>
+</div>
