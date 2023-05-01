@@ -19,7 +19,7 @@ module EspressoApp
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
-    config.action_mailer.default_url_options = { :host => 'murmuring-thicket-15698.herokuapp.com' }
+    config.action_mailer.default_url_options = { :host => ENV['APP_DOMAIN'] }
     config.i18n.default_locale = :'pt-BR'
 
     config.active_record.encryption.key_derivation_salt
