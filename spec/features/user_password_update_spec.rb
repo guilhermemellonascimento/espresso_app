@@ -52,7 +52,7 @@ describe 'Password update' do
         sign_in_with(user.email, user.password)
         fill_in_form('foo', first_password)
 
-        expect(page).to have_content 'Password foi usada anteriormente'
+        expect(page).to have_content 'Senha foi usada anteriormente'
       end
     end
 

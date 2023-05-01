@@ -61,7 +61,7 @@ describe 'Password reset' do
         fill_in 'user_password_confirmation', with: first_password
         click_button 'Atualizar'
 
-        expect(page).to have_content 'Password foi usada anteriormente'
+        expect(page).to have_content 'Senha foi usada anteriormente'
       end
     end
   end
